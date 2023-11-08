@@ -1,11 +1,32 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  const style = TextStyle(fontSize: 50, color: Colors.white);
+  runApp(const MyApp(title: "Aplicativo Olá Mundo",));
+}
 
-  runApp(const MaterialApp(
-    home: Center(
-      child: Text('ola mundo', style: style),
-    ),
-  ));
+class MyApp extends StatelessWidget {
+  final String title;
+  final int valor;
+
+  const MyApp({Key? key, this.title='', this.valor=0}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "$title valor = $valor",
+            textDirection: TextDirection.ltr,
+          ),
+        ),
+        body: const Center(
+          child: Text(
+            'ola mundo',
+            style: TextStyle(fontSize: 50, color: Colors.black),
+          ),
+        ),
+      ),
+    );
+  }
 }
